@@ -4,6 +4,7 @@ import ComponentWithRenderProps from './Components/ComponentWithRenderProps'
 
 import Dashboard from "./Components/Dashbord";
 import withAuth from "./Components/WithAuth";
+import Users from "./Components/Users";
 
 const ProtectedDashboard = withAuth(Dashboard)
 
@@ -24,6 +25,7 @@ function App() {
       {/* protected component */}
       <ProtectedDashboard/>
       <ComponentWithRenderProps render={(data) => <h1>{data}</h1>}/>
+      <Users/>
     </div>
   );
 }
