@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ContainerPresenter from "./ContainerPresenter";
+import ComponentWithRenderProps from './Components/ComponentWithRenderProps'
 
 import Dashboard from "./Components/Dashbord";
 import withAuth from "./Components/WithAuth";
@@ -20,7 +21,9 @@ function App() {
   return (
     <div>
       <ContainerPresenter users={users} />
+      {/* protected component */}
       <ProtectedDashboard/>
+      <ComponentWithRenderProps render={(data) => <h1>{data}</h1>}/>
     </div>
   );
 }
