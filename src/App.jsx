@@ -5,6 +5,8 @@ import ComponentWithRenderProps from './Components/ComponentWithRenderProps'
 import Dashboard from "./Components/Dashbord";
 import withAuth from "./Components/WithAuth";
 import Users from "./Components/Users";
+import Tabs from "./Components/Tabs";
+import Tab from "./Components/Tab";
 
 const ProtectedDashboard = withAuth(Dashboard)
 
@@ -26,6 +28,10 @@ function App() {
       <ProtectedDashboard/>
       <ComponentWithRenderProps render={(data) => <h1>{data}</h1>}/>
       <Users/>
+      <Tabs>
+        <Tab>Tab 1</Tab>
+        <Tab> Tab 2</Tab>
+      </Tabs>
     </div>
   );
 }
