@@ -1,0 +1,162 @@
+Algorithme Fusion (T , Debut , Fin)
+
+si Debut > Fin alors 
+retourne T[Debut]
+Fin si
+
+milieu <= Debut + Fin  / 2 
+
+
+TableauGauche <= Fusion (T, debut , milieu)
+TableauDroite <= Fusion (T,milieu + 1 , Fin)
+
+
+retourne Fusionner (TableauGauche,TableauDroite)
+
+Fin Fusion
+
+
+Algorithme Fusionner (gauche ,droite)
+
+FINAL  = tableau vide []
+
+i <= 0 ; // indice pour le tableau droite 
+j <= 0;  // indice pour le tableau gauche 
+k <= 0; // indice pour le tableau final
+
+
+Tant que j < gauche.length et i < droite.length Faire
+
+si gauche[j] < droite[i] alors
+Final[k] <= gauche[j] 
+j <= j+1 
+sion 
+Final[k] <= droite[i]
+i <= i + 1 
+
+Fin si 
+
+K <= k+1
+
+Fin tant que
+// ajouter les elements restants de gauche
+
+tant que j <= gauche[j] Faire
+Final[k] <= gauche[j];
+j<= j+1
+k<= k+1;
+ fin tant que 
+
+
+ // ajouter les elements restants de drooite
+
+tant que i <= droite[i] Faire
+Final[k] <= droite[i];
+i<= i+1
+k<= k+1;
+ fin tant que 
+
+ retourne Final
+
+ Fin Fusion
+
+
+
+ TRI PAR COMPTAGE :
+
+ T [5,3,2,5,4,4,5]
+
+ étape 1 : chercher les bornes du tableau T
+
+ min : 2
+ max : 5
+
+
+ étape 2 : création de tableau du comptage C
+
+ calculer la taille : taille de C 
+  
+  max - min +1 = 5 - 2 + 1 = 4 
+
+  ainsi taille de c est egale a 4 
+
+  initialiser un tableau C de taille 4 avec des zéro [0,0,0,0] C 
+
+ 
+
+  étape 3 : Remplir le Tbaleau C 
+  pour chaque element de tableau T on note ses elements par x 
+
+  calculer l indice de element x : 
+  indice = x - min  == 5 - 2 = 3 ainsi l indice de 5 est 3 dans le tableau C
+  C[2,3,4,5] // indices de 2 3 4 5 les elements de T 
+
+  remplissage de C 
+
+  pour x = 5 => C[5-min] +1  C[5-2]+1 C[3]+1 C[0,0,0,1]
+  pour x  3 => C[3-min] C[3-2] C[1] C[1]+1 C[0,1,0,1]
+  pour x =2 => C[2-min] C[2-2] C[0]+1 C[1,1,0,1]
+  pour x = 5 => C[5-min] +1  C[5-2]+1 C[3]+1 C[1,1,0,2]
+    pour x = 4 => C[4-min] +1  C[4-2]+1 C[2]+1 C[1,1,1,2]
+      pour x = 4 => C[4-min] +1  C[4-2]+1 C[2]+1 C[1,1,2,2]
+        pour x = 5 => C[5-min] +1  C[5-2]+1 C[3]+1 C[1,1,2,3]
+
+        C finale = [0,0,0,0]
+
+
+
+
+
+  étape 4 : reconstruire le tableau trié T 
+
+  parcourir le tableau comptage C 
+
+  pour C[0] = 1 , ajouter 2 une fois [2]
+   pour C[1] = 1 , ajouter 3 une fois [2,3]
+    pour C[2] = 2 , ajouter 4 2 fois [2,3,4,4]
+     pour C[3] = 3 , ajouter 5 3 fois [2,3,4,4,5,5,5] => sortie 
+
+
+
+
+
+
+Algortithme Comptage (T):
+
+1.touver min => min(T) = 2 , touver le max max => max(T) = 5
+2. taille de C = max - min +1  = 5-2 +1 = 4
+3.initialiser C[taille = 4] = 0;
+
+ 4.pour chaque element x dans T Faire
+indice = x - min 
+C[indice] = C[indice] + 1 
+
+5. creation de tableau vide S = [2,3,4,4,5,5,5]
+
+pour i de 0 a C.length - 1 Faire 
+ tant que C[i] > 0 Faire 
+ Ajouter (i + min ) a S (tableau)
+ C[i] <= C[i] - 1 
+
+ 6. rtourne S ;
+
+ 7.Fin AlgortithmeComptage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
